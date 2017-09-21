@@ -1,0 +1,98 @@
+html {
+	min-height: 100%;
+	
+}
+
+body {
+
+	min-height: 100%;
+	background: url('../images/background.jpg');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	
+	font-family: 'Electrolize', sans-serif;
+	color: white;
+}
+
+.container {
+
+	height: 100%;
+}
+
+.charimg {
+
+	width: 200px;
+	height: 140px;
+	margin: 0 auto;
+	padding: 5px 15px;
+	position: relative;
+
+
+}
+.image {
+	position: relative;
+}
+
+.over {
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	color: green;
+	line-height: 1.5;
+}
+.character {
+
+	background: white;
+	border: solid thick green;
+	color: black;
+	/*overflow: auto;*/
+	float: left;
+	
+	cursor: pointer;
+
+}
+
+.character h4 {
+	text-align: center;
+}
+
+.char-container {
+	overflow: auto;
+	display: block;
+}
+
+h1 {
+	font-size: 30px;
+	padding: 5px;
+}
+
+h2 {
+
+	font-size: 24px;
+	padding: 5px;
+}
+
+
+.currentenemy {
+	overflow: auto;
+}
+
+#attackbanner {
+
+	font-size: 18px;
+}
+
+#restart {
+
+	display: none;
+}
+
+#attack {
+
+	display: none;
+}
+
+.enemiesleft {
+
+	overflow: auto;
+}
