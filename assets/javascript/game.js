@@ -85,6 +85,7 @@ var game = {
 		var enemy = game[game.enemyname];
 
 		// Make sure there is a valid enemy
+		$("#attack").prop("disabled",true);
 
 		if (game.enemychosen) {
 
@@ -115,8 +116,7 @@ var game = {
 					$("#" + game.enemyname + "hp").html("0");
 					$("#attackbanner").append(".. He is defeated. You have defeated all enemies. Congratulations, you win!");
 					$("#" + game.enemyname).remove();
-					$("#attack").prop("disabled",true);
-					$("#restart").css("display", "inline");
+					$("#restart").css("display", "inline")
 				} , 500);
 					
 				}
@@ -131,12 +131,13 @@ var game = {
 					// Check if user defeated and display restart button
 					if (you.hp <=0) {
 						$("#attackbanner").append(" . You have been deafeated. Please try again!")
-						$("#attack").prop("disabled",true);
+						
 						$("#" + game.charname + "hp").html("0");
 						$("#restart").css("display","inline");
 						}
 					else {
 						$("#" + game.charname + "hp").html(you.hp);
+						$("#attack").prop("disabled",false);
 					}
 
 				}, 500);	
