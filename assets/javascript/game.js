@@ -68,7 +68,7 @@ var game = {
 		element.remove();
 		
 		$(".currentenemy").html("<h2>Defender</h2>").append(element);
-		$("#attack").css("display","inline");
+		$("#attack").css("display","inline").prop("disabled",false);
 		game.enemiesleft--;
 		if(game.enemiesleft > 0) {
 			$(".enemiesleft").find("h2").replaceWith("<h2>Enemies Left</h2>");
@@ -115,7 +115,8 @@ var game = {
 					$("#" + game.enemyname + "hp").html("0");
 					$("#attackbanner").append(".. He is defeated. You have defeated all enemies. Congratulations, you win!");
 					$("#" + game.enemyname).remove();
-					$("#restart").css("display","inline");
+					$("#attack").prop("disabled",true);
+					$("#restart").css("display", "inline");
 				} , 500);
 					
 				}
@@ -130,6 +131,7 @@ var game = {
 					// Check if user defeated and display restart button
 					if (you.hp <=0) {
 						$("#attackbanner").append(" . You have been deafeated. Please try again!")
+						$("#attack").prop("disabled",true);
 						$("#" + game.charname + "hp").html("0");
 						$("#restart").css("display","inline");
 						}
