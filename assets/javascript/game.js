@@ -1,5 +1,5 @@
 
-//Save character divs to bring back on game restart
+//Save character divs in session memory to bring back on game restart
 var div1 = $("#obiwan");
 var div2 = $("#luke");
 var div3 = $("#sidious");
@@ -7,7 +7,7 @@ var div4 = $("#maul");
 
 
 var game = {
-	//Game characters as objects
+	//Game characters as nested objects
 	luke: {
 		attack: 15,
 		counterattack: 5,
@@ -29,6 +29,7 @@ var game = {
 		counterattack: 30,
 		hp: 150
 	},
+
 	//Game variables
 	attacklevel: 1,
 	charchosen: false,
@@ -78,6 +79,7 @@ var game = {
 		}
 		
 	},
+
 
 	attack: function() {
 
@@ -182,6 +184,7 @@ var game = {
 		$(".enemiesleft").html("");
 	},
 
+	//Tooltip character display
 	characterdisplay: function(character) {
 		$("#" + character).find(".charimg").css("opacity" , ".5");
 		var stats = $("<div/>");
@@ -192,18 +195,21 @@ var game = {
 		$("#" + character).find(".image").append(stats);
 	},
 
+	//Tooltip character display removal
 	displayremoval: function(character) {
 		$("#" + character).find(".charimg").css("opacity" , "1");
 		$("#" + character).find(".over").remove();
 	}
 }
 
+//Choose hero functionality
 $(".char-container").on("click", ".character", function() {
 
 	game.chooseplayer(this.id);
 
 });
 
+// Choose enemy functionality
 $(".enemiesleft").on("click", ".character", function(){
 
 
@@ -216,18 +222,7 @@ $(".enemiesleft").on("click", ".character", function(){
 	}
 });
 
-// $("0").on("click", function() {
-
-// 	alert('hello');
-
-// 	if(!game.enemychosen) {
-// 		game.chooseenemy(this.id);
-// 	}
-// 	else {
-// 		alert ('You already have an enemy selected. Defeat him to continue to a new enemy.');
-// 	}
-// });
-
+//On click function to begin attack logic functionality
 $("#attack").on("click", function()  {
 
 	if(game.enemychosen) {
@@ -241,7 +236,9 @@ $("#attack").on("click", function()  {
 $("#restart").on("click", function(){
 	game.restart();
 
-})
+});
+
+//Hover tooltips to display character information
 $(".container").on("mouseenter",".character", function() {
 	game.characterdisplay(this.id);
 });
